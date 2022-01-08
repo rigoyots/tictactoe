@@ -11,7 +11,9 @@ def main():
         make_move(player, board)
         player = next_player(player)
     display_board(board)
+    winner = winning_player(player)
     print("Good game. Thanks for playing!") 
+    print(f"{winner} is the winner!")
 
 def create_board():
     board = []
@@ -53,6 +55,12 @@ def next_player(current):
         return "x"
     elif current == "x":
         return "o"
+
+def winning_player(next_player):
+    if next_player == "x":
+        return "o"
+    elif next_player == "o":
+        return "x"
 
 if __name__ == "__main__":
     main()
